@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competenze Europee | Giulio Ottaviano</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── EU HERO BADGE ── */
+        .eu-flag-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 60px;
+        }
+        .eu-flag-wrap img {
+            width: 120px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 40px rgba(0,80,200,0.25);
+        }
+
+        /* ── SUBTITLE ── */
+        .competenze-subtitle {
+            text-align: center;
+            color: var(--muted2);
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 80px;
+            padding: 0 6%;
+        }
+
+        /* ── GRID WRAPPER ── */
+        .competenze-section {
+            padding: 0 6% 100px;
+        }
+
+        .competenze-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 60px 0;
+        }
+
+        .competenze-half-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* ── SINGLE COMPETENZA CARD ── */
+        .comp-card {
+            background: var(--mid);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 28px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            transition: border-color 0.35s ease, transform 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comp-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .comp-card:hover {
+            border-color: rgba(255,255,255,0.14);
+            transform: translateY(-3px);
+        }
+
+        .comp-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .comp-img {
+            width: 100px;
+            flex-shrink: 0;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            filter: grayscale(15%) contrast(1.05);
+        }
+
+        .comp-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .comp-body h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--white);
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .comp-scale {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .comp-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rating-bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .rating-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--white);
+            min-width: 28px;
+        }
+
+        .comp-body p {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .competenze-half-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .comp-card { flex-direction: column; }
+            .comp-img { width: 100%; aspect-ratio: 16/9; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GO<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="terza.html">Terza</a></li>
+                <li><a href="quarta.html">Quarta</a></li>
+                <li><a href="quinta.html">Quinta</a></li>
+                <li><a href="chi-sono.html">Chi sono</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-hero anim" style="padding-bottom: 0; border-bottom: none;">
+        <div class="page-label">Lifelong Learning</div>
+        <h1>Competenze<br>Europee</h1>
+        <p>In questa sezione elencherò il mio livello in ognuna di queste competenze.</p>
+    </div>
+
+    <div class="eu-flag-wrap anim anim-d1">
+        <img src="Immagini/Europa.png" alt="Bandiera Europea">
+    </div>
+
+    <!-- ── PRIMA RIGA: 4 competenze ── -->
+    <div class="competenze-section">
+        <div class="competenze-half-grid">
+
+            <!-- 1. Alfabetica -->
+            <div class="comp-card anim anim-d1">
+                <img class="comp-img" src="Immagini/Alfabetica.JPG" alt="Competenza alfabetica funzionale">
+                <div class="comp-body">
+                    <h2>Competenza alfabetica funzionale</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:80%"></div></div>
+                        <div class="rating-num">8</div>
+                    </div>
+                    <p>Penso che in questi anni scolastici di aver appreso una buona competenza alfabetica.</p>
+                </div>
+            </div>
+
+            <!-- 2. Multilingua -->
+            <div class="comp-card anim anim-d2">
+                <img class="comp-img" src="Immagini/Multilingua.jpeg" alt="Competenza multilingue">
+                <div class="comp-body">
+                    <h2>Competenza multilingue</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:70%"></div></div>
+                        <div class="rating-num">7</div>
+                    </div>
+                    <p>Potrei migliorare molto di più ma sono abbastanza soddisfatto dei miglioramenti fatti quest'anno.</p>
+                </div>
+            </div>
+
+            <!-- 3. Matematica e Scienze -->
+            <div class="comp-card anim anim-d3">
+                <img class="comp-img" src="Immagini/Scienze.jpeg" alt="Competenza matematica e scientifico-tecnologica">
+                <div class="comp-body">
+                    <h2>Competenza matematica e competenza di base in scienze e tecnologie</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+                        <div class="rating-num">9</div>
+                    </div>
+                    <p>Dopo questi tre anni scolastici e le varie ore passate a sviluppare autonomamente le mie passioni tecnologiche posso confermare di aver appreso molto su questa competenza.</p>
+                </div>
+            </div>
+
+            <!-- 4. Digitale -->
+            <div class="comp-card anim anim-d4">
+                <img class="comp-img" src="Immagini/Digitale.jpeg" alt="Competenza digitale">
+                <div class="comp-body">
+                    <h2>Competenza digitale</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+                        <div class="rating-num">9</div>
+                    </div>
+                    <p>Fin da piccolino ho sempre giocato e usufruito di questi strumenti digitali ma sempre facendone buon uso, questo mi ha aiutato ad avere un'ottima competenza digitale.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="competenze-divider">
+
+        <!-- ── SECONDA RIGA: 4 competenze ── -->
+        <div class="competenze-half-grid">
+
+            <!-- 5. Personale, sociale, imparare ad imparare -->
+            <div class="comp-card anim anim-d1">
+                <img class="comp-img" src="Immagini/Personale.jpeg" alt="Competenza personale, sociale e capacità di imparare ad imparare">
+                <div class="comp-body">
+                    <h2>Competenza personale, sociale e capacità di imparare ad imparare</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:75%"></div></div>
+                        <div class="rating-num">7.5</div>
+                    </div>
+                    <p>Dovrei migliorare le mie abilità nell'insegnamento ma ci devo ancora lavorare.</p>
+                </div>
+            </div>
+
+            <!-- 6. Civica -->
+            <div class="comp-card anim anim-d2">
+                <img class="comp-img" src="Immagini/Civica.jpeg" alt="Competenza sociale e civica in materia di cittadinanza">
+                <div class="comp-body">
+                    <h2>Competenza sociale e civica in materia di cittadinanza</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+                        <div class="rating-num">9</div>
+                    </div>
+                    <p>Rispetto tutto e tutti grazie all'insegnamento dei miei genitori e della scuola.</p>
+                </div>
+            </div>
+
+            <!-- 7. Cultura -->
+            <div class="comp-card anim anim-d3">
+                <img class="comp-img" src="Immagini/Cultura.jpeg" alt="Competenza in materia di consapevolezza ed espressione culturali">
+                <div class="comp-body">
+                    <h2>Competenza in materia di consapevolezza ed espressione culturali</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:70%"></div></div>
+                        <div class="rating-num">7</div>
+                    </div>
+                    <p>Penso che su questo aspetto mi devo concentrare maggiormente visto che il mondo del lavoro ormai ha contatti internazionali.</p>
+                </div>
+            </div>
+
+            <!-- 8. Imprenditoriale -->
+            <div class="comp-card anim anim-d4">
+                <img class="comp-img" src="Immagini/Imprenditoriale.jpeg" alt="Competenza imprenditoriale">
+                <div class="comp-body">
+                    <h2>Competenza imprenditoriale</h2>
+                    <div class="comp-scale">Scala da 1 a 10</div>
+                    <div class="comp-rating">
+                        <div class="rating-bar"><div class="rating-fill" style="width:90%"></div></div>
+                        <div class="rating-num">9</div>
+                    </div>
+                    <p>Ho grandi abilità imprenditoriali, so riuscire a gestire molte task allo stesso tempo sviluppando competenze di multitasking.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">GO<span>.</span></div>
+        <div class="footer-copy">
+            <p>Portfolio PCTO | Giulio Ottaviano</p>
+            <p>4°M Informatica — Istituto Blaise Pascal — A.S. 2025/2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>

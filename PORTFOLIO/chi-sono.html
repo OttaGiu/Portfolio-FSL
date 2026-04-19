@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Sono | Giulio Ottaviano</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* ── PAGE HERO ── */
+        .about-hero {
+            padding: 140px 6% 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-hero-left .page-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .about-hero-left .page-label::before {
+            content: '';
+            display: inline-block;
+            width: 24px; height: 1px;
+            background: var(--accent);
+        }
+
+        .about-hero-left h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            letter-spacing: -0.03em;
+            color: var(--white);
+            line-height: 1.0;
+        }
+
+        .about-hero-right {
+            font-size: 1rem;
+            color: var(--muted2);
+            font-weight: 300;
+            max-width: 380px;
+            line-height: 1.75;
+        }
+
+        /* ── MAIN 2-COL LAYOUT ── */
+        .about-main {
+            padding: 80px 6% 100px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* ── SIDEBAR ── */
+        .about-sidebar {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 4px 28px 4px 28px;
+            border: 1px solid var(--border);
+            filter: grayscale(15%) contrast(1.05);
+        }
+
+        .about-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .meta-chip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+
+        .meta-chip .key {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        .meta-chip .val {
+            font-size: 0.88rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* ── CONTENT COLUMN ── */
+        .about-content h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 6px;
+        }
+
+        .about-content h1 span { color: var(--accent); }
+
+        .about-content .subtitle {
+            font-size: 1rem;
+            color: var(--muted2);
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        .about-block {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-block:last-of-type {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .about-block h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .about-block p {
+            color: var(--muted2);
+            font-weight: 300;
+            font-size: 0.97rem;
+            line-height: 1.85;
+        }
+
+        /* ── SKILLS ── */
+        .skills-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-chip {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+        .skill-chip.highlight {
+            background: rgba(255,60,0,0.1);
+            border-color: rgba(255,60,0,0.3);
+            color: var(--accent2);
+        }
+
+        /* ── FERRARI SECTION ── */
+        .ferrari-section {
+            padding: 0 6% 100px;
+        }
+
+        .ferrari-section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            gap: 20px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .ferrari-section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .ferrari-section-header h2 span { color: var(--accent); }
+
+        .ferrari-section-header p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-weight: 300;
+            max-width: 360px;
+            line-height: 1.6;
+            text-align: right;
+        }
+
+        /* ── CAROUSEL WRAP ── */
+        .ferrari-carousel-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--darker);
+        }
+
+        .ferrari-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .ferrari-track img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .ferrari-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(10,10,10,0.72);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            color: var(--white);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.3rem;
+            line-height: 1;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ferrari-btn:hover { background: var(--accent); border-color: var(--accent); }
+        .ferrari-btn.prev { left: 16px; }
+        .ferrari-btn.next { right: 16px; }
+
+        .ferrari-counter {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.75);
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+            z-index: 10;
+        }
+
+        .ferrari-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .ferrari-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .ferrari-dot.active {
+            background: var(--accent);
+            width: 20px;
+            border-radius: 3px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .about-hero { flex-direction: column; align-items: flex-start; }
+            .about-hero-right { max-width: 100%; }
+            .about-main { grid-template-columns: 1fr; gap: 40px; padding: 50px 5% 60px; }
+            .about-sidebar { position: static; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+            .about-photo { max-width: 200px; }
+            .ferrari-carousel-wrap { aspect-ratio: 4/3; }
+            .ferrari-section-header { flex-direction: column; align-items: flex-start; }
+            .ferrari-section-header p { text-align: left; }
+            .ferrari-section { padding: 0 5% 60px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GO<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="terza.html">Terza</a></li>
+                <li><a href="quarta.html">Quarta</a></li>
+                <li><a href="quinta.html">Quinta</a></li>
+                <li><a href="competenze.html">Competenze</a></li>
+                <li><a href="chi-sono.html" class="active">Chi sono</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ── HERO ── -->
+    <div class="about-hero anim">
+        <div class="about-hero-left">
+            <div class="page-label">About me</div>
+            <h1>Chi Sono</h1>
+        </div>
+        <div class="about-hero-right">
+            Studente di informatica, appassionato di tecnologia e motori. Cresciuto tra computer e Ferrari, cerco ogni giorno di unire queste due anime.
+        </div>
+    </div>
+
+    <!-- ── MAIN LAYOUT ── -->
+    <div class="about-main">
+
+        <!-- Sidebar -->
+        <div class="about-sidebar anim anim-d1">
+            <img class="about-photo" src="https://static.wixstatic.com/media/0beea3_9d364b646ea34e62b5447f3aae1236a9~mv2.jpg" alt="Giulio Ottaviano">
+            <div class="about-meta">
+                <div class="meta-chip">
+                    <div class="key">Età</div>
+                    <div class="val">17 anni</div>
+                </div>
+                <div class="meta-chip">
+                    <div class="key">Istituto</div>
+                    <div class="val">Blaise Pascal</div>
+                </div>
+                <div class="meta-chip">
+                    <div class="key">Classe</div>
+                    <div class="val">4°M Informatica</div>
+                </div>
+                <div class="meta-chip">
+                    <div class="key">Anno</div>
+                    <div class="val">2025/2026</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testo -->
+        <div class="about-content anim anim-d2">
+            <h1>Giulio <span>Ottaviano</span></h1>
+            <p class="subtitle">Studente, appassionato di tecnologia e motori.</p>
+
+            <div class="about-block">
+                <h3>La mia storia</h3>
+                <p>Fin da piccolo sono sempre stato attratto dai computer e dai motori. Col tempo, queste passioni sono cresciute con me: l'informatica mi affascina perché mi permette di creare, capire come funzionano le cose e usare la logica; mentre i motori mi attraggono per la loro complessità e del suono che riescono a produrre. Sogno di unire queste due passioni nel mio futuro e di lavorare in un campo dove possano convivere entrambe.</p>
+            </div>
+
+            <div class="about-block">
+                <h3>Passioni e ispirazioni</h3>
+                <p>Mio padre lavora in Ferrari — e questo ha acceso in me una passione profonda per l'automobilismo di alto livello. Visitare l'azienda con lui è sempre un momento speciale. Sogno di unire un giorno il mondo del software con quello dei motori: sistemi embedded, software di telemetria, intelligenza artificiale applicata alle prestazioni. Il futuro dell'auto è digitale, e voglio farne parte.</p>
+            </div>
+
+            <div class="about-block">
+                <h3>Conoscenze tecniche</h3>
+                <div class="skills-chips">
+                    <span class="skill-chip highlight">C++</span>
+                    <span class="skill-chip highlight">HTML / CSS</span>
+                    <span class="skill-chip highlight">Python</span>
+                    <span class="skill-chip">Hardware PC</span>
+                    <span class="skill-chip">Meccanica</span>
+                    <span class="skill-chip">Automobilismo</span>
+                    <span class="skill-chip">Problem Solving</span>
+                    <span class="skill-chip">Team Teaching</span>
+                </div>
+            </div>
+
+            <div class="about-block">
+                <h3>Obiettivo</h3>
+                <p>Arrivare alla maturità con un portfolio solido e un'idea chiara di dove voglio andare. Che sia l'università o il mondo del lavoro, voglio entrare con competenze reali — non solo voti.</p>
+            </div>
+
+            <a href="terza.html" class="btn btn-primary">Vedi i miei progetti →</a>
+        </div>
+
+    </div>
+
+    <!-- ── FERRARI CAROUSEL ── -->
+    <div class="ferrari-section anim anim-d3">
+        <div class="ferrari-section-header">
+            <h2>Una giornata in <span>Ferrari</span></h2>
+            <p>Alcune delle macchine più iconiche ammirate durante le visite in azienda con mio padre.</p>
+        </div>
+
+        <div class="ferrari-carousel-wrap">
+            <div class="ferrari-track" id="ferrari-track">
+                <img src="Immagini/Ferrari1.jpg" alt="Ferrari F1 — Scuderia Ferrari"           style="object-position: center 50%;">
+                <img src="Immagini/Ferrari2.jpg" alt="Ferrari F50 — Ferrari Classiche"         style="object-position: center 65%;">
+                <img src="Immagini/Ferrari3.jpg" alt="Ferrari 12Cilindri — Linea produzione"   style="object-position: center 55%;">
+                <img src="Immagini/Ferrari4.jpg" alt="Ferrari GT3 — Vista frontale"           style="object-position: center 65%;">
+                <img src="Immagini/Ferrari5.jpg" alt="Ferrari LaFerrari — Nera"               style="object-position: center 60%;">
+                <img src="Immagini/Ferrari7.jpg" alt="Ferrari 333 SP — Ferrari Classiche"     style="object-position: center 60%;">
+                <img src="Immagini/Ferrari8.jpg" alt="Ferrari 812 Competition — Blu"          style="object-position: center 60%;">
+            </div>
+            <button class="ferrari-btn prev" id="ferrari-prev">‹</button>
+            <button class="ferrari-btn next" id="ferrari-next">›</button>
+            <div class="ferrari-dots" id="ferrari-dots">
+                <div class="ferrari-dot active"></div>
+                <div class="ferrari-dot"></div>
+                <div class="ferrari-dot"></div>
+                <div class="ferrari-dot"></div>
+                <div class="ferrari-dot"></div>
+                <div class="ferrari-dot"></div>
+                <div class="ferrari-dot"></div>
+            </div>
+            <div class="ferrari-counter" id="ferrari-counter">1 / 7</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">GO<span>.</span></div>
+        <div class="footer-copy">
+            <p>Portfolio PCTO | Giulio Ottaviano</p>
+            <p>4°M Informatica — Istituto Blaise Pascal — A.S. 2025/2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const TOTAL = 7;
+        let current = 0;
+        const track   = document.getElementById('ferrari-track');
+        const dots    = document.querySelectorAll('.ferrari-dot');
+        const counter = document.getElementById('ferrari-counter');
+
+        function goTo(index) {
+            current = (index + TOTAL) % TOTAL;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            counter.textContent = `${current + 1} / ${TOTAL}`;
+        }
+
+        document.getElementById('ferrari-prev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('ferrari-next').addEventListener('click', () => goTo(current + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+        // Swipe touch
+        let startX = 0;
+        const wrap = document.querySelector('.ferrari-carousel-wrap');
+        wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+        wrap.addEventListener('touchend',   e => {
+            const diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+        });
+
+        // Auto-avanzamento ogni 4 secondi
+        setInterval(() => goTo(current + 1), 4000);
+    </script>
+
+</body>
+</html>
